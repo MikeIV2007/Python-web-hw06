@@ -15,7 +15,7 @@ disciplines = [
     "Фізика",
     "Хімія",
     "Економіка",
-    "Англыйска мова",
+    "Англійська мова",
     "Інформатика" 
 ] 
 
@@ -32,9 +32,6 @@ def seed_teachers():
     sql = "INSERT INTO teachers(fullname) VALUES (?);"
     cursor.executemany(sql, zip(teachers,))
 
-# def seed_disciplines():
-#     sql = "INSERT INTO disciplines(name, teacher_id) VALUES(?, ? );"
-#     cursor.executemany(sql, zip(disciplines, iter(randint(1, NUMBER_OF_TEACHERS) for _ in range(len(disciplines)))))
 
 def seed_disciplines():
     list_teacher_id = [randint(1, NUMBER_OF_TEACHERS) for _ in range(len(disciplines))]
@@ -78,10 +75,6 @@ def seed_grades():
     cursor.executemany(sql, grades)
 
 if __name__ == '__main__':
-    #get_list()
-    # seed_teachers()
-    # connect.commit()
-    # connect.close()
     try:
         seed_teachers()
         seed_disciplines()

@@ -2,29 +2,15 @@ import sqlite3
 from pprint import pprint
 
 def main(query):
-    # Підключення до бази даних (замініть 'mydatabase.db' на шлях до вашої бази даних)
     connection = sqlite3.connect('HW06.bd')
-
-    # Створення курсору
     cursor = connection.cursor()
 
-    # Відкриття файлу з SQL-інструкцією
     with open(query, 'r') as sql_file:
         sql_query = sql_file.read()
-
-    # Виконання SQL-інструкції з файлу
     cursor.execute(sql_query)
-
-    # Отримання результатів запиту
     results = cursor.fetchall()
-
-    # Виведення результатів за допомогою pprint
     pprint(results)
-
-    # Збереження змін у базі даних (якщо це необхідно)
     connection.commit()
-
-    # Закриття курсора і з'єднання з базою даних
     cursor.close()
     connection.close()
 
