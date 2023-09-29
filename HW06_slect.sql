@@ -94,7 +94,6 @@ GROUP BY g.discipline_id
 ORDER BY d.name;
 
 --Оцінки студентів у певній групі з певного предмета на останньому занятті.
---Знайти оцінки студентів у окремій групі з певного предмета.
 SELECT s.fullname  AS Students, gr.name AS Group_name, d.name AS Discipline, g.grade 
 FROM grades g 
 LEFT JOIN students s ON s.id = g.student_id 
